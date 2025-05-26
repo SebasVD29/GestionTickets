@@ -9,8 +9,8 @@ const DashboardLayout = () => {
         <h1>Dashboard</h1>
         <ul>
           <NavItem to="/" text="Home" />
-          <NavItem to="/activities" text="Activities" />
-          <NavItem to="/OTROS" text="OTROS" />
+          <NavItem to="/users" text="Gestion de Usuarios" />
+          <NavItem to="/tickets" text="Gestion de Tickets" />
         </ul>
       </nav>
 

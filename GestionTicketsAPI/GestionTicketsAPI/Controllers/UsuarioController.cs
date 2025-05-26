@@ -1,83 +1,50 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GestionTicketsAPI.Modelos;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GestionTicketsAPI.Controllers
 {
+    [Route("api/Usuario")]
+    [ApiController]
     public class UsuarioController : Controller
     {
         // GET: UsuarioController
-        public ActionResult Index()
+        [HttpGet("GetUsers")]
+        public IActionResult GetUsuarios()
         {
-            return View();
-        }
-
-        // GET: UsuarioController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: UsuarioController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: UsuarioController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            var usuarios = new List<Usuario>
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+                new Usuario
             {
-                return View();
-            }
-        }
-
-        // GET: UsuarioController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: UsuarioController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
+                id = 1,
+                name = "Ana García",
+                email = "ana@example.com",
+                password = "password",
+                role = "admin",
+                isActive = true
+            },
+            new Usuario
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+                id = 2,
+                name = "Carlos López",
+                email = "carlos@example.com",
+                password = "password",
+                role = "user",
+                isActive = true
+            },
+            new Usuario
             {
-                return View();
+                id =3,
+                name = "Marta Rodríguez",
+                email = "marta@example.com",
+                password = "password",
+                role = "editor",
+                isActive = false
             }
-        }
-
-        // GET: UsuarioController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: UsuarioController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            };
+            return new JsonResult(usuarios);
         }
     }
+
+    
 }

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashboardLayout from "./components/DashboardLayout";
 import Home from "./pages/Home";
-import Activities from "./pages/Activities";
+import Users from "./pages/Usuarios";
+import Tickets from "./pages/Tickets";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Home />} />
-          <Route path="activities" element={<Activities />} />
+          <Route path="users" element={<Users />} />
+          <Route path="tickets" element={<Tickets />} />
         </Route>
       </Routes>
     </Router>
